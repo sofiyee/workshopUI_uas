@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NutraBox</title>
+  <link rel="shortcut icon" type="image/png" href="./assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="./assets/css/styles.min.css" />
+  
+<!-- Bootstrap JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!--  App Topstrip -->
+    <div class="app-topstrip bg-dark py-6 px-3 w-100 d-lg-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-center gap-5 mb-2 mb-lg-0">
+      </div>
+      <div class="d-lg-flex align-items-center gap-2">
+        <h3 class="text-white mb-2 mb-lg-0 fs-5 text-center">Check Flexy Premium Version</h3>
+        <div class="d-flex align-items-center justify-content-center gap-2">
+          
+          <div class="dropdown d-flex">
+            <a class="btn btn-primary d-flex align-items-center gap-1 " href="javascript:void(0)" id="drop4"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti ti-shopping-cart fs-5"></i>
+              Buy Now
+              <i class="ti ti-chevron-down fs-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+         <a href="./index.html" class="text-nowrap logo-img">
+          <img src="img/logo.png" alt="" style="max-height: 50px; width: auto;" />
+        </a>
+
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-6"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="dashboard.html" aria-expanded="false">
+                <i class="ti ti-atom"></i>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <!-- ---------------------------------- -->
+            <!-- Dashboard -->
+            <!-- ---------------------------------- -->
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"  
+                href="KelolaUser.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-aperture"></i>
+                  </span>
+                  <span class="hide-menu">User</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <span class="sidebar-divider lg"></span>
+            </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"  
+                href="KelolaBlog.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-notes"></i>
+                  </span>
+                  <span class="hide-menu">Blog</span>
+                </div>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between active"  
+                href="KelolaProduk.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-files"></i>
+                  </span>
+                  <span class="hide-menu">Produk</span>
+                </div>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"  
+                href="#" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-topology-star-3"></i>
+                  </span>
+                  <span class="hide-menu">Transaksi</span>
+                </div>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between"  
+                href="index.html" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-shopping-cart"></i>
+                  </span>
+                  <span class="hide-menu">eCommerce</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+      <!-- Main Content Start -->
+<div class="body-wrapper">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Kelola Produk Nutrisi</h2>
+      <button class="btn btn-primary" id="btnAddProduct">Tambah Produk Baru</button>
+    </div>
+
+    <!-- Produk List Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Judul Produk</th>
+            <th>Harga</th>
+            <th>Deskripsi</th>
+            <th>Gambar</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+          <!-- Konten di-generate oleh JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Form for Add/Edit Product -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <form id="productForm" enctype="multipart/form-data" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Tambah Produk Baru</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="productId" name="productId" />
+        <div class="mb-3">
+          <label for="productTitle" class="form-label">Judul Produk</label>
+          <input type="text" class="form-control" id="productTitle" name="productTitle" required />
+        </div>
+        <div class="mb-3">
+          <label for="productPrice" class="form-label">Harga</label>
+          <input type="number" class="form-control" id="productPrice" name="productPrice" required min="0" />
+        </div>
+        <div class="mb-3">
+          <label for="productDesc" class="form-label">Deskripsi</label>
+          <textarea class="form-control" id="productDesc" name="productDesc" rows="4" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="productImage" class="form-label">Gambar</label>
+          <input class="form-control" type="file" id="productImage" name="productImage" accept="image/*" />
+          <img id="previewProductImage" src="#" alt="Preview Gambar" style="max-width: 200px; margin-top: 10px; display:none;" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+  const btnAddProduct = document.getElementById('btnAddProduct');
+  const productForm = document.getElementById('productForm');
+  const previewProductImage = document.getElementById('previewProductImage');
+  const productImageInput = document.getElementById('productImage');
+  const productTableBody = document.getElementById('productTableBody');
+
+  let products = [];
+
+  // Load data dari localStorage saat halaman dibuka
+  function loadProducts() {
+    const data = localStorage.getItem('products');
+    products = data ? JSON.parse(data) : [];
+  }
+
+  // Simpan data ke localStorage
+  function saveProducts() {
+    localStorage.setItem('products', JSON.stringify(products));
+  }
+
+  // Render tabel produk
+  function renderProducts() {
+    productTableBody.innerHTML = '';
+    if (products.length === 0) {
+      productTableBody.innerHTML = '<tr><td colspan="5" class="text-center">Belum ada data produk.</td></tr>';
+      return;
+    }
+    products.forEach((product, index) => {
+      productTableBody.innerHTML += `
+        <tr>
+          <td>${product.title}</td>
+          <td>Rp ${Number(product.price).toLocaleString()}</td>
+          <td>${product.desc.length > 60 ? product.desc.substring(0, 60) + '...' : product.desc}</td>
+          <td>${product.image ? `<img src="${product.image}" alt="Gambar Produk" style="width:80px; height:auto;">` : 'No Image'}</td>
+          <td>
+            <button class="btn btn-sm btn-warning btnEdit" data-index="${index}">Edit</button>
+            <button class="btn btn-sm btn-danger btnDelete" data-index="${index}">Hapus</button>
+          </td>
+        </tr>
+      `;
+    });
+
+    // Pasang event listener tombol Edit dan Hapus
+    document.querySelectorAll('.btnEdit').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = e.target.getAttribute('data-index');
+        openEditModal(idx);
+      });
+    });
+
+    document.querySelectorAll('.btnDelete').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = e.target.getAttribute('data-index');
+        deleteProduct(idx);
+      });
+    });
+  }
+
+  // Buka modal untuk tambah produk baru
+  btnAddProduct.addEventListener('click', () => {
+    productForm.reset();
+    previewProductImage.style.display = 'none';
+    document.getElementById('productModalLabel').textContent = 'Tambah Produk Baru';
+    document.getElementById('productId').value = '';
+    productModal.show();
+  });
+
+  // Preview gambar saat pilih file
+  productImageInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewProductImage.setAttribute('src', e.target.result);
+        previewProductImage.style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    } else {
+      previewProductImage.style.display = 'none';
+    }
+  });
+
+  // Simpan data produk dari form
+  productForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const id = document.getElementById('productId').value;
+    const title = document.getElementById('productTitle').value.trim();
+    const price = document.getElementById('productPrice').value;
+    const desc = document.getElementById('productDesc').value.trim();
+
+    const file = productImageInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const base64Image = event.target.result;
+        saveProductData(id, title, price, desc, base64Image);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      // Kalau edit dan gambar tidak diganti, pakai gambar lama (kalau ada)
+      let base64Image = '';
+      if(id) {
+        const existingProduct = products.find(p => p.id === id);
+        base64Image = existingProduct ? existingProduct.image : '';
+      }
+      saveProductData(id, title, price, desc, base64Image);
+    }
+  });
+
+  // Simpan/update produk ke array dan localStorage
+  function saveProductData(id, title, price, desc, image) {
+    if(id) {
+      // Edit produk
+      const idx = products.findIndex(p => p.id === id);
+      if(idx !== -1) {
+        products[idx] = { id, title, price, desc, image };
+      }
+    } else {
+      // Tambah produk baru, buat ID unik
+      const newId = 'product-' + Date.now();
+      products.push({ id: newId, title, price, desc, image });
+    }
+    saveProducts();
+    renderProducts();
+    productModal.hide();
+  }
+
+  // Buka modal edit dengan isi data produk yang dipilih
+  function openEditModal(index) {
+    const product = products[index];
+    if(!product) return;
+
+    document.getElementById('productModalLabel').textContent = 'Edit Produk';
+    document.getElementById('productId').value = product.id;
+    document.getElementById('productTitle').value = product.title;
+    document.getElementById('productPrice').value = product.price;
+    document.getElementById('productDesc').value = product.desc;
+
+    if(product.image) {
+      previewProductImage.src = product.image;
+      previewProductImage.style.display = 'block';
+    } else {
+      previewProductImage.style.display = 'none';
+    }
+
+    productImageInput.value = ''; // reset input file agar bisa upload baru
+    productModal.show();
+  }
+
+  // Hapus produk berdasarkan index pakai SweetAlert2
+  function deleteProduct(index) {
+    Swal.fire({
+      title: 'Yakin ingin menghapus produk ini?',
+      text: "Data produk akan hilang permanen!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Ya, hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        products.splice(index, 1);
+        saveProducts();
+        renderProducts();
+        Swal.fire(
+          'Terhapus!',
+          'Produk berhasil dihapus.',
+          'success'
+        );
+      }
+    });
+  }
+
+  // Inisialisasi
+  loadProducts();
+  renderProducts();
+</script>
+
+     
